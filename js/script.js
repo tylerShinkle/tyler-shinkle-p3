@@ -7,8 +7,40 @@
 
 
 $(document).ready(function() {
-  //login & signup buttons and events...
+  //post object constructor...
+  function Post(title, content) {
+    this.title = title;
+    this.content = content;
+    this.date = function() {
+      var d = new Date();
+      var month = d.getMonth() + 1;
+      var day = d.getDate();
+      var year = d.getFullYear();
+      return month + "/" + day + "/" + year;
+    };
+    this.build = function() {
+      var postContainer = $("#postContainer");
+      var postBlock = $("<div></div>");
+      postBlock.addClass("post");
+      var titleEl = $("<h3></h3>").text(this.title);
+      titleEl.addClass("postTitle");
+      var dateEl = $("<h3></h3>").text(this.date());
+      dateEl.addClass("postDate");
+      var contentEl = $("<p></p>").html(this.content);
+      contentEl.addClass("postContent");
+      postBlock.append(titleEl);
+      postBlock.append(dateEl);
+      postBlock.append(contentEl);
+      postContainer.append(postBlock);
+    };
+  }
 
+  //data array for test or "fake posts"
+  var posts = [];
+  //initial posts contruction and pushing to array...
+  var postA = new Post("Creating a Server in Node.js", "In order to create a server in Node.js you must first include the http module like so... <br><br>var http = require ('http');<br><br>Then you will use a mehthod of this module which returns a server object. The mehtod is known as createServer() it should look something like this...<br><br>http.createServer(function(req,res){<br>&emsp;//code<br>}).listen(8080);");
+  posts.push(postA);
+  //login & signup buttons and events...
   //login button event
   $("#loginButt").click(function() {
     var un = $("#loginUN").val();
@@ -54,6 +86,7 @@ $(document).ready(function() {
     clearScreen();
     //show main
     mainPage.css("display", "block");
+    loadPosts();
   };
 
 
@@ -87,5 +120,12 @@ $(document).ready(function() {
     var user = $("#navUser");
     user.text(un);
   }
+
+  //load data posts
+  function loadPosts() {
+    for (var i = 0; i < posts.length; i++) {
+      posts[i].build();
+    }
+  };
 
 });
