@@ -28,9 +28,11 @@ $(document).ready(function() {
       dateEl.addClass("postDate");
       var contentEl = $("<p></p>").html(this.content);
       contentEl.addClass("postContent");
+      var deleteEl = $("<button>Delete</button>");
       postBlock.append(titleEl);
       postBlock.append(dateEl);
       postBlock.append(contentEl);
+      postBlock.append(deleteEl);
       postContainer.append(postBlock);
     };
   }
@@ -127,5 +129,4 @@ $(document).ready(function() {
       posts[i].build();
     }
   };
-
 });
