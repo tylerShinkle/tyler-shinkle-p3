@@ -3,32 +3,72 @@
 
 <head>
   <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <title>devShare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Tyler Shinkle">
   <meta name="keywords" content="social, media, developers">
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 
 <body>
-  <p>
-    Lorem ipsum dolor sit amet, pri ea eirmod veritus adolescens, eam idque eloquentiam te. Mea ut laudem invenire platonem, cu apeirian euripidis eam. An aperiri deterruisset signiferumque eos. Nec an vivendo apeirian, his no suas inani mediocrem,
-    ea vix partem vocibus. Pri ea agam albucius adipisci, ne errem ubique mea.
-
-    Usu ex paulo patrioque constituto, sed aperiam dolorem in. Qui oporteat voluptatibus cu, ius possit commune adipisci ei. At vis intellegam dissentiunt. Munere dolorum eam ut.
-
-    Per ut diceret verterem tractatos, sed ullum adversarium consectetuer cu, duo ut unum sadipscing. Ne petentium iracundia ius. Eam cu quaerendum conclusionemque. Probo deleniti reformidans eam ut, ubique blandit ex his.
-
-    Cu eam sale constituto. Eos mutat tation gubergren ne. Eu his alterum prodesset, aeque consequuntur necessitatibus ad nam. Eos nonumy nullam inciderint eu. Dolorum detracto principes vim ad.
-
-    Vix elit urbanitas eu, mollis tritani volutpat ea quo, aliquam epicuri mnesarchum sit id. Cu mel delenit appellantur, vidit feugait insolens at cum, id pri legimus vulputate. Vel congue utamur reprehendunt in, vidit referrentur his ad, natum
-    similique suscipiantur vis ea. Pro ei dolore facilisi, qui quod falli minimum in.
-
-    Esse dolorum mediocrem at cum. Et sea consequat constituam. Eu tota doming nam. Saepe facilisis est ne.
-
-    Iriure urbanitas efficiendi ei per, quas putent delectus eu eum. Posse vidisse constituto ei usu. Vituperata sadipscing ei nam, eu timeam dolorum usu. Eu eum impetus gubergren suscipiantur. Est in oblique nostrud meliore, cu dicit sonet
-    disputationi vim, assum posidonium ad quo.
-  </p>
+  <!--login page-->
+  <div id="loginContainer">
+    <div id="login">
+      <h1>devShare</h1>
+      <h3>learn.</h3>
+      <h3>teach.</h3>
+      <h3>collaborate.</h3>
+      <br>
+      <label for="username">username</label>
+      <input type="text" name="username" value="" id="loginUN">
+      <br>
+      <label for="password">password</label>
+      <input type="password" name="password" value="" id="loginPW">
+      <br><br>
+      <button type="button" name="login" id="loginButt">login</button>
+      <button type="button" name="sign up" id="signUpButt">sign up</button>
+    </div>
+  </div>
+  <!--login page end-->
+  <!--sign up page-->
+  <div id="signUpContainer">
+    <div id="signUp">
+      <h1>devShare</h1>
+      <h3>learn.</h3>
+      <h3>teach.</h3>
+      <h3>collaborate.</h3>
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" value="" id="fName">
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" value="" id="lName">
+      <label for="email">Email</label>
+      <input type="text" name="email" value="" id="email">
+      <label for="userName">Username</label>
+      <input type="text" name="userName" value="" id="unJoin">
+      <label for="password">Password</label>
+      <input type="password" name="password" value="" id="pwJoin">
+      <br><br>
+      <button type="button" name="joinButt" id="joinButt">Join</button>
+      <button type="button" name="cancelButt" id="cancelButt">Cancel</button>
+    </div>
+  </div>
+  <!--sign up page end-->
+  <div id="mainPage">
+    <nav>
+      <p id="navLogo">devShare</p>
+      <p id="navUser">userName</p>
+    </nav>
+    <main>
+      <div id="buttonContainer">
+        <button type="button" name="addPost" id="addPost">post</button>
+        <button type="button" name="inbox" id="inbox">inbox</button>
+        <button type="button" name="theme" id="theme">theme</button>
+        <button type="button" name="logout" id="logout">logout</button>
+      </div>
+    </main>
+  </div>
   <script type="text/javascript" src="js/script.js"></script>
 </body>
 
