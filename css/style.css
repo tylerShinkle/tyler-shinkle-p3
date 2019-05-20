@@ -154,6 +154,7 @@ main button {
 #postContainer {
   width: 100%;
   margin: auto;
+  padding-bottom: 3em;
 }
 
 .post {
