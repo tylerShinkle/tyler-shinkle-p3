@@ -7,6 +7,7 @@
 
 
 $(document).ready(function() {
+  var darkMode = false;
   //post object constructor...
   function Post(title, content) {
     this.title = title;
@@ -18,6 +19,7 @@ $(document).ready(function() {
       var year = d.getFullYear();
       return month + "/" + day + "/" + year;
     };
+    this.delButt = $("<button>Delete</button>");
     this.build = function() {
       var postContainer = $("#postContainer");
       var postBlock = $("<div></div>");
@@ -28,7 +30,8 @@ $(document).ready(function() {
       dateEl.addClass("postDate");
       var contentEl = $("<p></p>").html(this.content);
       contentEl.addClass("postContent");
-      var deleteEl = $("<button>Delete</button>");
+      var deleteEl = this.delButt;
+      deleteEl.addClass("del");
       postBlock.append(titleEl);
       postBlock.append(dateEl);
       postBlock.append(contentEl);
@@ -40,8 +43,10 @@ $(document).ready(function() {
   //data array for test or "fake posts"
   var posts = [];
   //initial posts contruction and pushing to array...
-  var postA = new Post("Creating a Server in Node.js", "In order to create a server in Node.js you must first include the http module like so... <br><br>var http = require ('http');<br><br>Then you will use a mehthod of this module which returns a server object. The mehtod is known as createServer() it should look something like this...<br><br>http.createServer(function(req,res){<br>&emsp;//code<br>}).listen(8080);");
+  var postA = new Post("Creating a Server in Node.js", "In order to create a server in Node.js you must first include the http module like so... <br><br>var http = require ('http');<br><br>Then you will use a mehthod of this module which returns a server object. The mehtod is known as createServer() it should look something like this...<br><br>http.createServer(function(req,res){<br>&emsp;//code<br>}).listen(8080);<br><br>More on nodeJS in my next post.");
   posts.push(postA);
+  var postB = new Post("Directives in AngularJS", "The first three directives you should learn are ng-app, ng-model and ng-bind. Research theses directives and we will build a project together in the future.");
+  posts.push(postB);
   //login & signup buttons and events...
   //login button event
   $("#loginButt").click(function() {
@@ -65,6 +70,34 @@ $(document).ready(function() {
   //cancel signup button events
   $("#cancelButt").click(function() {
     cancelSignup();
+  });
+
+  //del button
+  $(document).on('click', '.del', function() {
+    $(this).parent('.post').remove();
+  })
+
+  //logout button
+  $("#logout").click(function() {
+    clearScreen();
+    $("#loginContainer").css("display", "table");
+  });
+
+  //theme button
+  $("#theme").click(function() {
+    if (!darkMode) {
+      $("body").css("background-color", "black");
+      $("body").css("color", "white");
+      $(".post").css("border-bottom", "2px solid white");
+      $("nav").css("border-bottom", "2px solid white");
+      darkMode = true;
+    } else {
+      $("body").css("background-color", "white");
+      $("body").css("color", "black");
+      $(".post").css("border-bottom", "2px solid black");
+      $("nav").css("border-bottom", "2px solid black");
+      darkMode = false;
+    }
   });
 
   // function for login button.
@@ -111,10 +144,12 @@ $(document).ready(function() {
     var login = $("#loginContainer");
     var signup = $("#signUpContainer");
     var mainPage = $("#mainPage");
+    var postContainer = $("#postContainer");
     $("input").val("");
     login.css("display", "none");
     signup.css("display", "none");
     mainPage.css("display", "none");
+    postContainer.empty();
   }
 
   //set User Name
