@@ -66,12 +66,19 @@
       <div class="fixed">
         <div id="buttonContainer">
           <button type="button" name="addPost" id="addPost">post</button>
-          <button type="button" name="friends" id="friends">friends</button>
           <button type="button" name="theme" id="theme">theme</button>
           <button type="button" name="logout" id="logout">logout</button>
         </div>
       </div>
     </main>
+  </div>
+  <div id="modal">
+    <label for="title">Title</label>
+    <input type="text" name="title" value="" id="modalTitle">
+    <label for="newPost" id="modalPost">Post</label>
+    <textarea name="newPostContent" rows="8" cols="80" id="newPostContent"></textarea>
+    <button type="button" name="submitModal" id="submitModal">Post</button>
+    <button type="button" name="cancelModal" id="cancelModal">Cancel</button>
   </div>
   <script type="text/javascript" src="js/script.js"></script>
 </body>

@@ -100,6 +100,32 @@ $(document).ready(function() {
     }
   });
 
+  //open modal
+  $("#addPost").click(function() {
+    var modal = $("#modal");
+    modal.css("display", "block");
+  });
+
+  //cancel modal
+  $("#cancelModal").click(function() {
+    clearModal();
+  });
+
+  //make new post (submin modal)
+  $("#submitModal").click(function() {
+    var newTitle = $("#modalTitle").val();
+    var newContent = $("#newPostContent").val();
+    var aNewPost = new Post(newTitle, newContent);
+    aNewPost.build();
+    clearModal();
+  });
+
+  //clear modal
+  function clearModal() {
+    $("#modal").css("display", "none");
+    $("#modalTitle").val("");
+    $("#newPostContent").val("");
+  }
   // function for login button.
   function verifyLogin(un, pw) {
     if ((un.length <= 10 && un.length >= 5) && (pw.length <= 10 && un.length >= 5)) {
